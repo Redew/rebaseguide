@@ -1,23 +1,20 @@
-h1 {
+h1, h2 {
 	font-family: Tahoma, Verdana, Segoe, sans-serif;
-	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 100;
 	line-height: 26.3999996185303px;
-	border-bottom:1px solid gray;
+	border-bottom:1px solid #6495ED;
 	text-transform:uppercase;
+	color:#4169E1;
+}
+
+h1 {
+	font-size: 24px;
 }
 
 h2 {
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
 	font-size: 20px;
-	font-style: normal;
-	font-variant: normal;
-	font-weight: 100;
-	line-height: 26.3999996185303px;
-	border-bottom:1px solid gray;
-	text-transform:uppercase;
 }
 
 a {
@@ -57,7 +54,7 @@ p {
 	padding:0;
 }
 
-.codeblock pre {
+pre {
 	padding-left:5px;
 	padding-top:5px;
 	font-family: "Courier New", Courier, monospace;
