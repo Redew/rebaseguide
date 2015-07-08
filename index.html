@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rebasing Guide</title>
+	<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+        <link rel='stylesheet' type='text/css' href='css/stylesheet.css'/>
+        <script type='text/javascript' src='script.js'></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	</head>
+	<body>
+
+<h1>how to rebase/squash</h1>
+
+<p>Hi. Rebasing really sucks. This is a guide to make it less sucky.</p>
+
+<h2>generating ssh keys</h2>
+
+<p>First, you need to <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">generate an SSH key</a> (this will open up in a new page). Click the link to do that, then check back here.</p>
+
+<p>Now, go to the repo that you want to rebase at. You want to go to YOUR FORK. If you go to the main file (i.e. Zarel/Pokemon-Showdown instead of YOUR-FORK/Pokemon-Showdown), it will not direct you to the correct files. Navigate to the bar on the right. It will look like this:</p>
+
+<img src="http://i.imgur.com/lv6bsDp.png" alt="" />
+
+<p>Click on SSH, then click on the clipboard (or c/p it manually) and go to your terminal. The link will look like this:<br /> <span class="cd">git@github.com:Redew/Pokemon-Showdown.git</div></p>
+
+<h2>using the terminal</h2>
+
+<p>Next, type in everything <strong>after</strong> the <em>$:</em></p>
+
+<div class="codeblock">
+<pre>
+user@Computer-Name:~$ git clone REPOSITORY LINK
+</pre>
+</div>
+
+<p>After you do that, navigate to it through <span class="cd">cd</span>. Example:</p>
+
+<div class="codeblock">
+<pre>
+user@Computer-Name:~$ cd Pokemon-Showdown
+</pre>
+</div>
+
+<p>Next, you tell it you want to rebase. Type in everything after the $:</p>
+
+<div class="codeblock">
+<pre>
+user@Computer-Name:~/Pokemon-Showdown$ git rebase -i HEAD~NUMBER
+</pre>
+</div>
+
+<p>The commits you want to rebase will be a number. Let's say you edited a file 3 times without it being merged. So, you would type in: git rebase -i HEAD~3. You will get something like this:</p>
+
+<img src="http://i.imgur.com/TMP9Ixg.png" alt="" />
+
+<p>The order of commits from top to bottom goes oldest to newest, respectively.</p>
+
+<p>Let's say we wanted to put the newest two commits into the top (oldest) commit. We can do this by navigating with the arrow buttons and replacing pick with squash:</p>
+
+<img src="http://i.imgur.com/wmP8ddu.png" alt="" />
+
+<p>After you've squashed what you want to, ctrl + x to exit. Press Y to save changes. When it asks you to rename, just click enter and continue with the default path. After that, type in:</p>
+
+<div class="codeblock">
+<pre>
+user@Computer-Name:~/Pokemon-Showdown$ git push --force
+</pre>
+</div>
+
+<p>You will get a weird spiel about git push, but at the bottom, you should see something like this:</p>
+
+<div class="codeblock">
+<pre>
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 240 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To git@github.com:REPOLINK/PATH
++ d152d96...afa5b8e master -> master (forced update)
+</pre>
+</div>
+
+<h2>finish</h2>
+
+<p>Done! Everything should be squashed.</p>
+</body></html>
